@@ -1,0 +1,22 @@
+1)Установить Visual Studio Code and Open server (composer там уже установлен)
+2)Загрузить Zip-архив from Github и распаковать его в папку: OpenServer\domains\
+3)Открыть встроеный терминал Open server, по умолчанию будет указан путь: d:\OpenServer, можно обновить версию composer командой: composer self-update (Всё это удобней делать прямо в проекте в VS Code)
+4)затем перейти в папку с проектом: здесь: d:\OpenServer\domains\Laravel-Admin-Panel так: cd domains\Laravel-Admin-Panel и запусить установку пакетов описанных в composer.json командой: composer update (в проекте появится папка: vendor)
+5)Переименовать файл: .env.example в .env
+6)В терминале Open server для своего проекта: здесь: d:\OpenServer\domains\Laravel-Admin-Panel запустить команду "php artisan key:generate" (при этом в файле: .env сгенерируется ключ: APP_KEY)
+7)в файле: .env даём название базе данных: здесь: DB_DATABASE=laravel-admin-panel, создаём БД с таким названием в PhpMyAdmin
+8)Заполняем настройки почты по примеру:
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=example@gmail.com // наша почта
+MAIL_PASSWORD=password // пароль от почты
+MAIL_ENCRYPTION=ssl
+10)в терминале OS в проекте запускаем команду: "php artisan migrate" (будут созданы все таблицы описанные в проекте)
+11)затем команду: "php artisan serve" и нажимаем на появившуюся ссылку: http://127.0.0.1:8000
+
+=========================================================================================================================
+
+Установка ролей пользователей:
+
+https://spatie.be/docs/laravel-permission/v5/basic-usage/basic-usage
